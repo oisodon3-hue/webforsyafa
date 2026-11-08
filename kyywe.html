@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special for safaaaaaaaa ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+
+        h0 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #ff4b6e;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            height: 50px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #btn-yes {
+            background-color: #ff4b6e;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 75, 110, 0.4);
+        }
+
+        #btn-yes:hover {
+            background-color: #ff3358;
+            transform: scale(1.05);
+        }
+
+        #btn-no {
+            background-color: #e0e0e0;
+            color: #333;
+            position: absolute;
+        }
+
+        /* Halaman Sukses */
+        .hidden {
+            display: none;
+        }
+
+        .success-message {
+            font-size: 20px;
+            color: #ff4b6e;
+            font-weight: 600;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="main-card">
+        <div class="heart">❤️</div>
+        <h1>Hai Kamu! ✨</h1>
+        <p>Makasih ya udah hadir di hidup aku dan bikin hari-hari aku jauh lebih berwarna. Kamu sayang juga kan sama aku?</p>
+        
+        <div class="btn-group">
+            <button id="btn-yes" onclick="sayYes()">Sayang Banget! 🥰</button>
+            <button id="btn-no" onmouseover="moveButton()" onclick="moveButton()">Enggak 😜</button>
+        </div>
+    </div>
+
+    <div class="card hidden" id="success-card">
+        <div class="heart">💖</div>
+        <h1>Yeay! 🎉</h1>
+        <p class="success-message">Hehe, aku tahu kamu bakal jawab gitu! I love you so much, jangan bosen-bosen sama aku ya! ❤️✨</p>
+    </div>
+
+    <script>
+        function moveButton() {
+            const btnNo = document.getElementById('btn-no');
+            // Menghitung batas area acak agar tombol tidak keluar layar card
+            const x = Math.random() * (window.innerWidth - btnNo.offsetWidth - 100);
+            const y = Math.random() * (window.innerHeight - btnNo.offsetHeight - 100);
+            
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = `${Math.max(20, x)}px`;
+            btnNo.style.top = `${Math.max(20, y)}px`;
+        }
+
+        function sayYes() {
+            document.getElementById('main-card').classList.add('hidden');
+            document.getElementById('success-card').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
